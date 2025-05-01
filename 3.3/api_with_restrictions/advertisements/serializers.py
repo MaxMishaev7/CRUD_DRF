@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-# from advertisements.models import Advertisement
-from .models import Advertisement
+from advertisements.models import Advertisement
+
 
 class UserSerializer(serializers.ModelSerializer):
     """Serializer для пользователя."""
@@ -41,5 +41,6 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         """Метод для валидации. Вызывается при создании и обновлении."""
 
         # TODO: добавьте требуемую валидацию
+        if data['status'] == 'OPEN':
 
         return data
